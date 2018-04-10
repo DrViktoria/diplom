@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+
+<body>
+    <header class="navbar navbar-static-topbs-docs-nav" id="top"role="banner">
+        <div class="container">
+            <div class="navbar-header">
+
+            </div>
+        </div>
+    </header>
+
+    <div class="bs-docs-header" id="content">
+        <div class="auth-container">
+
+                     <div class="dvs-input">
+                          <input type="text" name="username" placeholder="Введите логин">
+                     </div>
+                     <div class="dvs-input">
+                         <input type="password" name="password" placeholder="Введите пароль">
+                     </div>
+                        <input class ="dvs-submit" type="submit" name="submit" value="Войти">
+                        <br />
+                        <a href="#">Восстановить пароль</a>
+
+        </div>
+    </div>
+
+    <div class="reg-cont">
+        <div class="reg-container">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-3">
+                    <h1 class="title">Нет аккаунта? </h1>
+
+                </div>
+                <div class="col-lg-1">
+
+                    <button type="submit" class="btn btn-primary btn-color btn-lg ">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
