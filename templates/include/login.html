@@ -1,0 +1,36 @@
+{%  extends "include/base.html" %}
+
+{% block content %}
+    <div class = "askdrob-login">
+        {% for error in form.non_field_errors %}
+         <div class = "alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              {{ error }}
+         </div>
+        {% endfor %}
+            <form class="form-horizontal" method="post"	action="">
+                {%	csrf_token	%}
+                <h2 align="center">Вход</h2>
+                <div	class="form-group row" align="right">
+                    <label	for="username"	class="col-md-4	col-form-label ">{{form.username.label}}</label>
+                    <div	class="col-md-4"> {{form.username}}	</div>
+                </div>
+                <div  class="form-group row" align="right">
+                    <label	for="password"	class="col-md-4	col-form-label ">{{form.password.label}}</label>
+                    <div	class="col-md-4">	{{form.password	}} </div>
+                </div>
+                <div class="form-group" align="center">
+                    <div class="col-md-offset-2	col-md-2">
+                        <button	type="submit" class="btn btn-primary btn"> Войти </button>
+                        <a	href="{% url 'signup' %}">Регистрация</a>
+                    </div>
+                </div>
+            </form>
+
+    </div>
+{%	endblock	%}
+
+
+
+
+

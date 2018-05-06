@@ -137,8 +137,17 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+MEDIA_ROOT = r'C:/Users/Виктория/PycharmProjects/diplom/static/'
+MEDIA_URL = '/img/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static",),
+STATICFILES_DIRS = [
+    # location of your application, should not be public web accessible
+    r'C:\Users\Виктория\PycharmProjects\diplom\static'
+]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )

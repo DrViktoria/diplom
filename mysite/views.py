@@ -1,34 +1,47 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from .forms import SubscribersForms
-from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
-
-def landing(request):
-    name = "Виктория"
-    current_day = "26.03.2018"
-    form = SubscribersForms(request.POST or None)
-
-    if request.method == 'POST' and form.is_valid():
-        print(request.POST)
-        print(form.cleaned_data)
-        data = form.cleaned_data
-        print(data["name"])
-        form.save()
-        return HttpResponseRedirect(request.path)
-
-    return render(request, 'landing/landing.html', locals())
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response, reverse
+from django.views.generic import TemplateView, DetailView, ListView
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import auth
+from mysite.forms import SignupForm, LoginForm
 
 
 def index(request):
-    return render(request, 'landing/index.html', locals())
+    return render(request, 'include/index.html')
 
 
-class RegisterFormView(FormView):
-    form_class = UserCreationForm
-    success_url = "/index/"
-    template_name = "register.html"
+def login(request):
+    redirect_to = request.GET.get('next')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
 
-    def form_valid(self, form):
-        form.save()
-        return super(RegisterFormView, self).form_valid(form)
+        if form.is_valid():
+            auth.login(request, form.cleaned_data['user'])
+            if redirect_to:
+                return redirect(redirect_to)
+            return redirect('/')
+    else:
+        form = LoginForm()
+    return render(request, 'include/login.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            u = form.save()
+            auth.login(request, u)
+            return redirect('/')
+    else:
+        form = SignupForm()
+    return render(request, 'include/signup.html', {'form': form})
+
+
+@login_required
+def logout(request):
+    redirect_to = request.GET.get('next')
+    auth.logout(request)
+    if redirect_to:
+        return redirect(redirect_to)
+    return redirect('/')
+

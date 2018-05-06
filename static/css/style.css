@@ -1,0 +1,50 @@
+.p-0{
+   padding: 0;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    height: 50px;
+    width: 50px;
+}
+
+.h_img{
+    height: 512px;
+}
+
+.p-net{
+    padding-top: 25px;
+}
+.size-img{
+    width: 170px;
+    height: 170px;
+}
+
+.signup{
+    padding-left: 50px;
+}
+
+.askdrob-error-messages{
+        color: red;
+        margin-left: 15px;
+}
+
+.logo-size{
+    width: 50px;
+    height: 40px;
+}
+
+.askdrob-authorised{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    right: 50px;
+    position: absolute;
+    color: white;
+}
+
+.user-menu{
+    margin-right:120px;
+    float: right;
+    background-color: aqua;
+}
+
+

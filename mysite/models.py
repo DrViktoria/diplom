@@ -2,18 +2,12 @@ from django.contrib.auth.models import User
 from django.db import models, migrations
 
 
-class Subscriber(models.Model):
-    email = models.EmailField()
-    name = models.CharField(max_length=150)
+class UserModel(models.Model):
+    f_name = models.CharField(max_length=100, verbose_name=u'Name', null=True)
+    l_name = models.CharField(max_length=100, verbose_name=u'L_name', null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.PROTECT)
 
     def __str__(self):
-        return "Пользователь %s %s" % (self.name, self.email)
+        return self.l_name
 
 
-class Article(models.Model):
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-    #user = models.ForeignKey(User)
-
-    def __str__(self):
-        return self.title
