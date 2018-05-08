@@ -11,3 +11,18 @@ class UserModel(models.Model):
         return self.l_name
 
 
+class Car(models.Model):
+    name = models.CharField(max_length=255)
+
+
+class AlbomModel(models.Model):
+    logo =models.ImageField()
+    named = models.CharField(max_length=50)
+    discription_albom = models.TextField (max_length=100)
+
+
+class ImageModel(models.Model):
+    img = models.ImageField()
+    note = models.TextField(max_length=250)
+    result = models.CharField(max_length=50)
+

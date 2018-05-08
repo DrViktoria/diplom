@@ -15,3 +15,6 @@ from .models import *
 admin.site.register(UserModel)
 # admin.site.register(SubscriberAdmin)
 
+admin.site.register(AlbomModel)
+
+admin.site.register(ImageModel)

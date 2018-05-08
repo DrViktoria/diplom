@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, DetailView, ListView
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
+from mysite.models import AlbomModel, ImageModel
 from mysite.forms import SignupForm, LoginForm
 
 
