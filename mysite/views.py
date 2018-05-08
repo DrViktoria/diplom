@@ -9,7 +9,7 @@ from mysite.forms import SignupForm, LoginForm
 
 def index(request):
     return render(request, 'include/index.html')
-
+dfsdgg
 
 def login(request):
     redirect_to = request.GET.get('next')
